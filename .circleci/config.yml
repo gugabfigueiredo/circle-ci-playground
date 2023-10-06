@@ -15,6 +15,25 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Say hello"
+          command: "echo Hello, World!"
+
+
+  build:
+    docker:
+      - image: circleci/golang:1.20  # Use the appropriate Go version
+
+    working_directory: .
+
+    steps:
+      - checkout
+
+      # Install any dependencies (if needed)
+      # - run:
+      #     name: Install Dependencies
+      #     command: go mod download
+
+      - run:
           name: Run Tests
           command: go test ./...
 
