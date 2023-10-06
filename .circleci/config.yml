@@ -19,22 +19,24 @@ jobs:
           command: "echo Hello, World!"
 
   build:
+    working_directory: ~/repo
     docker:
-      - image: circleci/golang:1.20  # Use the appropriate Go version
-
-    working_directory: .
-
+      - image: cimg/go:1.20
     steps:
       - checkout
-
-      # Install any dependencies (if needed)
-      # - run:
-      #     name: Install Dependencies
-      #     command: go mod download
-
+      - restore_cache:
+          keys:
+            - go-mod-v4-{{ checksum "go.sum" }}
       - run:
-          name: Run Tests
-          command: go test ./...
+          name: Install Dependencies
+          command: go get ./...
+      - save_cache:
+          key: go-mod-v4-{{ checksum "go.sum" }}
+          paths:
+            - "/go/pkg/mod"
+      - run:
+          name: Run tests
+          command: go test -v
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
