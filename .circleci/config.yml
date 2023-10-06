@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
 
   build:
-    working_directory: /go/src/github.com/gugabfigueiredo/circle-ci-playground
+    working_directory: .
     docker:
       - image: cimg/go:1.20
     steps:
