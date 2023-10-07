@@ -54,3 +54,6 @@ workflows:
       - build:
           requires:
             - say-hello
+      - bump-version:
+          requires:
+            - build
