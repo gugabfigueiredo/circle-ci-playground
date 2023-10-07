@@ -57,6 +57,6 @@ workflows:
 #      - build:
 #          requires:
 #            - say-hello
-      - bump:
-          requires:
-            - build
+      - bump
+#          requires:
+#            - build
