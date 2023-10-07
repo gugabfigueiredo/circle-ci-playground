@@ -18,7 +18,7 @@ jobs:
           name: "Say hello"
           command: |
             echo "Hello, World!"
-            PWD
+            pwd
 
   build:
     working_directory: ~/gugabfigueiredo/circle-ci-playground
