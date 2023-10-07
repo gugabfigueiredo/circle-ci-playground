@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
 
   build:
-    working_directory: ~/circle-ci-playground
+    working_directory: ~/gugabfigueiredo/circle-ci-playground
     docker:
       - image: cimg/go:1.20
     steps:
@@ -31,8 +31,8 @@ jobs:
           name: Run tests
           command: go test ./...
 
-  bump-version:
-    working_directory: ~/circle-ci-playground
+  bump:
+    working_directory: ~/gugabfigueiredo/circle-ci-playground
     docker:
       - image: cimg/base:stable
     steps:
@@ -55,6 +55,6 @@ workflows:
       - build:
           requires:
             - say-hello
-      - bump-version:
+      - bump:
           requires:
             - build
