@@ -32,6 +32,8 @@ jobs:
           command: go test ./...
 
   bump-version:
+    docker:
+      - image: cimg/base:stable
     steps:
       - run:
           name: install autotag binary
