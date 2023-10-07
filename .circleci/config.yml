@@ -42,9 +42,9 @@ jobs:
             curl -sL https://git.io/autotag-install | sudo sh -s -- -b /usr/bin
       - run:
           name: increment version
-          command:
-            - PWD
-            - autotag
+          command: |
+            PWD
+            autotag
 
 
 # Orchestrate jobs using workflows
