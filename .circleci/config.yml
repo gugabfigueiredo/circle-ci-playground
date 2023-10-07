@@ -42,7 +42,7 @@ jobs:
             curl -sL https://git.io/autotag-install | sudo sh -s -- -b /usr/bin
       - run:
           name: increment version
-          commands:
+          command:
             - PWD
             - autotag
 
