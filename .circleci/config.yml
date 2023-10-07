@@ -32,6 +32,7 @@ jobs:
           command: go test ./...
 
   bump-version:
+    working_directory: ~/circle-ci-playground
     docker:
       - image: cimg/base:stable
     steps:
