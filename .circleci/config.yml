@@ -16,7 +16,9 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
+          command: |
+            echo "Hello, World!"
+            PWD
 
   build:
     working_directory: ~/gugabfigueiredo/circle-ci-playground
@@ -32,7 +34,6 @@ jobs:
           command: go test ./...
 
   bump:
-    working_directory: ~/gugabfigueiredo/circle-ci-playground
     docker:
       - image: cimg/base:stable
     steps:
