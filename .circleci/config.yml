@@ -31,6 +31,18 @@ jobs:
           name: Run tests
           command: go test ./...
 
+  bump-version:
+    steps:
+      - run:
+          name: install autotag binary
+          command: |
+            curl -sL https://git.io/autotag-install | sudo sh -s -- -b /usr/bin
+      - run:
+          name: increment version
+          command: |
+            autotag
+
+
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
